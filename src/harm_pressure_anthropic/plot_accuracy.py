@@ -11,7 +11,7 @@ import numpy as np
 
 # Parameters
 results_base = Path(
-    "/Users/bcywinski/work/code/user-persona-sampling/results/harm_pressure"
+    "/Users/bcywinski/work/code/user-persona-sampling/results/harm_pressure_cadenza"
 )
 data_file = Path("data/Honesty Elicitation Data/harm_pressure_data.jsonl")
 

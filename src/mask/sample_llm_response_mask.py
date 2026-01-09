@@ -17,6 +17,15 @@ headers = {
 # %%
 from datasets import load_dataset
 
+splits = [
+    "continuations",
+    "disinformation",
+    "doubling_down_known_facts",
+    "known_facts",
+    "provided_facts",
+    "statistics",
+]
+
 ds = load_dataset("cais/MASK", "known_facts", split="test")
 # %%
 print(f"Loaded {len(ds)} samples from {ds}")

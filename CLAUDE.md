@@ -11,7 +11,9 @@ You are an experienced, pragmatic software engineer and AI research assistant. Y
 
 **Project Description**: Exploring non-assistant persona sampling: sampling LLMs completions not from assistant turn, as it is usually done, but e.g. from user turn.
 You can do this via completions API, you don't have to use locally hosted LLMs.
-The only requirement is to corretly format chat prompt. For instance, for Kimi K2 LLM, you can use following structure of prompt send via completions API: `<|im_system|>system<|im_middle|>You are Kimi, an AI assistant created by Moonshot AI.<|im_end|>\n<|im_user|>user<|im_middle|>`. This way generated completion will be on the user's turn. For reference, in the most standard way, to sample from the assistant persona, you would structure the prompt as: `<|im_system|>system<|im_middle|>You are Kimi, an AI assistant created by Moonshot AI.<|im_end|>\n<|im_user|>user<|im_middle|>{prompt}<|im_end|>\n<|im_assistant|>assistant<|im_middle|>`.
+The only requirement is to corretly format chat prompt. For instance, for Kimi K2 LLM, you can use following structure of prompt send via completions API: `<|im_system|>system<|im_middle|>You are Kimi, an AI assistant created by Moonshot AI.<|im_end|>\n<|im_user|>user<|im_middle|>`. This way generated completion will be on the user's turn. For reference, in the most standard way, to sample from the assistant persona, you would structure the prompt as: `<|im_system|>system<|im_middle|>You are Kimi, an AI assistant created by Moonshot AI.<|im_end|>\n<|im_user|>user<|im_middle|>{prompt}<|im_end|>\n<|im_assistant|>assistant<|im_middle|><think></think>****`.
+
+**Important**: Note that you have to adapt the chat template to every LLM separately.
 
 **Project Objective**: A qualitative understanding of whether non-assistant persona sampling is something we should in practice use when investigating weird model behaviour.
 
