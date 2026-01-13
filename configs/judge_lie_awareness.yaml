@@ -1,0 +1,10 @@
+# Configuration for judging lie awareness in model completions
+
+# Input file from sampling output
+input_file: "/workspace/projects/non-assistant-sampling/outputs/mask/prefill_samples/deepseek_deepseek-v3.2/assistant/20260112_230308.json"
+
+# Output file for judgments (defaults to judgments.json in same directory as input)
+output_file: "outputs/mask/prefill_samples/deepseek_deepseek-v3.2/assistant/judgments.json"
+
+# LLM judge model (via OpenRouter)
+judge_model: "google/gemini-3-flash-preview"

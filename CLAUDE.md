@@ -30,6 +30,7 @@ The only requirement is to corretly format chat prompt. For instance, for Kimi K
 - YAGNI. The best code is no code. Don't add features we don't need right now.
 - When it doesn't conflict with YAGNI, architect for extensibility and flexibility.
 - ALWAYS use uv venv when running the code or installing new packages.
+- NOTE that when I use runpod, my uv venv is stored in `/root/myenv`. Use it if such env exists.
 
 ## Writing code
 
@@ -66,7 +67,7 @@ The only requirement is to corretly format chat prompt. For instance, for Kimi K
 ### Configuration Management
 
 - **Use YAML config files** with Hydra or OmegaConf for all experiments
-- Store all configs in `experiments/configs/`
+- Store all configs in `configs/`
 - Config files should be complete and self-contained
 - Never hardcode hyperparameters in scripts
 

@@ -9,10 +9,10 @@ from pathlib import Path
 
 # %%
 # Parameters
-results_dir = "results/mask_provided_facts/kimi-k2-thinking-temp-0.0"
-output_file = (
-    "results/mask_provided_facts/kimi-k2-thinking-temp-0.0/filtered_indices.json"
+results_dir = (
+    "/workspace/projects/non-assistant-sampling/outputs/mask/deepseek-v3.2-temp-0.0"
 )
+output_file = "outputs/mask/deepseek-v3.2-temp-0.0/filtered_indices.json"
 
 # %%
 

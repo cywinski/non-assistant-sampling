@@ -1,0 +1,10 @@
+# Configuration for judging harm awareness in model completions
+
+# Input file from sample_user_persona.py output
+input_file: "/workspace/projects/non-assistant-sampling/outputs/harm_pressure_anthropic/prefill_samples/deepseek_deepseek-v3.2/author/20260112_171735.json"
+
+# Output file for judgments (defaults to judgments.json in same directory as input)
+output_file: "outputs/harm_pressure_anthropic/prefill_samples/deepseek_deepseek-v3.2/author/judgments.json"
+
+# LLM judge model (via OpenRouter)
+judge_model: "google/gemini-3-flash-preview"

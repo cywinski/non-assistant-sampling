@@ -17,6 +17,7 @@ messages = [
         "reasoning_content": "thinking...",
     },
     {"role": "user", "content": "1+1=?"},
+    {"role": "assistant", "content": "2", "reasoning_content": "thinking..."},
 ]
 encode_config = dict(
     thinking_mode="thinking", drop_thinking=False, add_default_bos_token=True

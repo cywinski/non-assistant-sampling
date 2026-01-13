@@ -11,16 +11,8 @@ import numpy as np
 
 # Parameters
 results_base = Path(
-    "/Users/bcywinski/work/code/user-persona-sampling/results/harm_pressure_cadenza"
+    "/workspace/projects/non-assistant-sampling/outputs/harm_pressure_anthropic/"
 )
-data_file = Path("data/Honesty Elicitation Data/harm_pressure_data.jsonl")
-
-# Load data from JSONL file
-prompt_data = {}
-with open(data_file, "r") as f:
-    for idx, line in enumerate(f):
-        data = json.loads(line)
-        prompt_data[idx] = data["answer"]
 
 
 def extract_response_text(response):
@@ -65,7 +57,7 @@ def calculate_model_accuracy(model_dir):
 
         for entry in results:
             prompt_idx = entry["prompt_index"]
-            expected_answer = entry.get("ground_truth") or prompt_data.get(prompt_idx)
+            expected_answer = entry.get("ground_truth")
 
             if expected_answer is None:
                 continue

@@ -1,0 +1,37 @@
+# Non-assistant persona sampling configuration
+# Templates are formatted with {question}, {answer} (incorrect), and {prompt} (prefill)
+
+# Data file containing samples with question_text, answer, incorrect_answer fields
+data_file: "/workspace/projects/non-assistant-sampling/data/Honesty Elicitation Data/harm_pressure_data.jsonl"
+
+# Optional: filter to specific indices (set to null or omit to use all samples)
+filtered_indices_file: null
+# filtered_indices_file: "outputs/harm_pressure_anthropic/deepseek-v3.2-temp-0.0/filtered_indices.json"
+
+# The prefill is appended after the template (what the persona starts saying)
+prefill: ""
+
+# Which personas to sample from
+# Options:
+#   - user: sample from user turn
+#   - assistant: standard assistant turn (with thinking for reasoning models)
+#   - standard_no_thinking: assistant turn without thinking tags
+personas:
+  - user
+  # - assistant
+  # - standard_no_thinking
+
+models:
+  - deepseek/deepseek-v3.2
+  # - qwen/qwen3-235b-a22b-thinking-2507
+  # - moonshotai/kimi-k2
+
+# Sampling parameters
+temperature: 1.0
+max_tokens: 1000
+
+# Output directory (model subdirs created automatically)
+output_dir: outputs/harm_pressure_anthropic/prefill_samples/random
+
+# Optional: provider routing (leave empty for default)
+provider: "atlas-cloud/fp8"
