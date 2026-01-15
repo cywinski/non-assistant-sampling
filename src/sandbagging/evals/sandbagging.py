@@ -18,6 +18,7 @@ from prompts import (
     GOAL_SYSTEM_PROMPT,
     INIT_SANDBAGGING_PROMPT,
     NO_GOAL_SYSTEM_PROMPT,
+    NO_SANDBAGGING_DOCUMENTATION,
 )
 
 
@@ -62,9 +63,7 @@ def read_file():
 
 
 @solver
-def basic_agent_solver(
-    goal_and_cot: bool = True,
-) -> Solver:
+def basic_agent_solver(goal_and_cot: bool = True) -> Solver:
     return basic_agent(
         init=[
             system_message(
@@ -76,7 +75,7 @@ def basic_agent_solver(
     )
 
 
-def get_record_to_sample(consequence: str):
+def get_record_to_sample(consequence: str, sandbag: bool = True):
     def record_to_sample(record):
         target_sequence = ""
         formatted_quiz = []
@@ -101,7 +100,11 @@ def get_record_to_sample(consequence: str):
             input=f"Quiz #{record['quiz_id'].split('_')[1]}",
             target=target_sequence,
             files={
-                "Documentation.md": DOCUMENTATION.format(consequence=consequence),
+                "Documentation.md": (
+                    DOCUMENTATION.format(consequence=consequence)
+                    if sandbag
+                    else NO_SANDBAGGING_DOCUMENTATION
+                ),
                 "questions.txt": "\n".join(formatted_quiz),
             },
         )
@@ -145,15 +148,17 @@ def sandbagging_eval(
     consequence: str = "we won't deploy them",
     task: Literal["math", "geo", "vocab"] = "math",
     goal_and_cot: bool = False,
+    sandbag: bool = True,
+    epochs: int = 1,
 ) -> Task:
     dataset = json_dataset(
         f"../dataset/{task}_scenario.json",
-        sample_fields=get_record_to_sample(consequence),
+        sample_fields=get_record_to_sample(consequence, sandbag),
     )
-
     return Task(
         dataset=dataset,
         solver=basic_agent_solver(goal_and_cot),
         scorer=multiple_choices(),
         sandbox="local",
+        epochs=epochs,
     )
