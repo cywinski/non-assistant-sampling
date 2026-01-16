@@ -11,5 +11,6 @@ wheels/
 .env
 
 logs
+logs2
 json_logs
 .DS_Store

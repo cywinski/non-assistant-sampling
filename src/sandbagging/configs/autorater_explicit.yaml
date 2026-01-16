@@ -1,0 +1,20 @@
+# Config for autorater_explicit_sandbagging.py
+# Analyzes reasoning traces to detect explicit sandbagging declarations
+
+# Directory containing .eval files to analyze
+logs_dir: "logs2"
+
+# Output file path for results
+output_file: "results/explicit_sandbagging_analysis.json"
+
+# Model to use for autorater
+autorater_model: "google/gemini-3-flash-preview"
+
+# Provider: "openai" or "openrouter"
+autorater_provider: "openrouter"
+
+# Skip samples where output isn't valid A/B/C/D answers
+skip_invalid_output: true
+
+# Skip samples with score = 0
+skip_zero_score: true

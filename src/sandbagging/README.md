@@ -40,5 +40,5 @@ To switch between different modes (e.g. no CoT), please see the options in `eval
 To run the sandbagging eval on openrouter model:
 
 ```bash
-inspect eval evals/sandbagging.py --time-limit 120 --model openrouter/deepseek/deepseek-v3.2 -T consequence="we won' deploy them"
+inspect eval evals/sandbagging.py --time-limit 120 --log-dir=logs/no_sandbag --model openrouter/moonshotai/kimi-k2-thinking -T consequence="we won't deploy them" -T sandbag=True -T epochs=10
 ```

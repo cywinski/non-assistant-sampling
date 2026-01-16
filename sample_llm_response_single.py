@@ -27,10 +27,11 @@ print(samples[0]["neutral_prompt"])
 
 # %%
 payload = {
-    "model": "moonshotai/kimi-k2-thinking",
+    "model": "openai/gpt-oss-120b",
     # "prompt": "<|im_system|>system<|im_middle|>You are Kimi, an AI assistant created by Moonshot AI.<|im_end|>\n<|im_user|>user<|im_middle|>hello<|im_end|>\n<|im_assistant|>assistant<|im_middle|><think></think>",
-    "prompt": "<|im_system|>system<|im_middle|>You are Kimi, an AI assistant created by Moonshot AI.<|im_end|>\n<|im_user|>user<|im_middle|>",
+    # "prompt": "<|im_system|>system<|im_middle|>You are Kimi, an AI assistant created by Moonshot AI.<|im_end|>\n<|im_user|>user<|im_middle|>",
     # "prompt": harmful_prompt,
+    "prompt": "",
     "temperature": 1.0,
     "max_tokens": 100,
     "stream": False,

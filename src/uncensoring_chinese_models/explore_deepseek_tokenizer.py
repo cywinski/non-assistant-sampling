@@ -1,16 +1,16 @@
 # %%
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-V3.2")
+tokenizer = AutoTokenizer.from_pretrained("google/gemma-3-27b-it")
 
 # %%
 messages = [
-    {"role": "system", "content": "You are a helpful assistant."},
+    # {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": "hello"},
     {
         "role": "assistant",
         "content": "Hello! I am DeepSeek.",
-        "reasoning_content": "thinking...",
+        # "reasoning_content": "thinking...",
     },
     {"role": "user", "content": "1+1=?"},
 ]
